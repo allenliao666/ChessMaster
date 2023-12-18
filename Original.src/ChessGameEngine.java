@@ -255,11 +255,13 @@ public class ChessGameEngine{
             else
             {
                 if ( currentPiece != null ){ //choose rival's chess
-                    showMessage(squareClicked,"chooseRivalChess");
+                    ChooseRivalChessMessage message = new ChooseRivalChessMessage(squareClicked);
+                    message.showMessage();
                 }
                 else //choose an empty board
                 {
-                    showMessage(squareClicked,"chooseEmptyBoard");
+                    ChooseEmptyBoard message = new ChooseEmptyBoard(squareClicked);
+                    message.showMessage();
                 }
             }
         }
@@ -278,7 +280,8 @@ public class ChessGameEngine{
                 }
                 else
                 {
-                    showMessage(squareClicked,"invalidMove");
+                    InvalidMessage message = new InvalidMessage(squareClicked);
+                    message.showMessage();
                 }
                 firstClick = true;
             }
@@ -289,40 +292,4 @@ public class ChessGameEngine{
             }
         }
     }
-
-    public void showMessage(BoardSquare squareClicked, String MessageType){
-        int row = squareClicked.getRow();
-        int col = squareClicked.getColumn();
-        switch (MessageType){
-            case "invalidMove":
-                JOptionPane.showMessageDialog(squareClicked, "The move to row " + ( row + 1 ) + " and column "
-                                + ( col + 1 )
-                                + " is either not valid or not legal "
-                                + "for this piece. Choose another move location, "
-                                + "and try using your brain this time!",
-                        "Invalid move",
-                        JOptionPane.ERROR_MESSAGE );
-                break;
-
-            case "chooseRivalChess" :
-                JOptionPane.showMessageDialog(
-                        squareClicked,
-                        "You tried to pick up the other player's piece! "
-                                + "Get some glasses and pick a valid square.",
-                        "Illegal move",
-                        JOptionPane.ERROR_MESSAGE );
-
-            case "chooseEmptyBoard" :
-                JOptionPane.showMessageDialog(
-                        squareClicked,
-                        "You tried to pick up an empty square! "
-                                + "Get some glasses and pick a valid square.",
-                        "Illegal move",
-                        JOptionPane.ERROR_MESSAGE );
-        }
-
-
-
-    }
-
 }
