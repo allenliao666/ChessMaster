@@ -191,13 +191,8 @@ public class ChessGameEngine{
                 return;
             }
             else if ( isKingInCheck( true ) ){
-                JOptionPane.showMessageDialog(
-                        board.getParent(),
-                        "Be careful player " + currentPlayer + ", " +
-                                "your king is in check! Your next move must get " +
-                                "him out of check or you're screwed.",
-                        "Warning",
-                        JOptionPane.WARNING_MESSAGE );
+                KingCheckedMessage message = new KingCheckedMessage(board,currentPlayer);
+                message.showMessage();
             }
             currentPlayer = currentPlayer == 1 ? 2 : 1;
             // check the next player's conditions as well.
