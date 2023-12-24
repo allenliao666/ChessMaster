@@ -202,7 +202,7 @@ public abstract class ChessGamePiece{
         ChessGameBoard board,
         int numMoves ){
         CalculateMove move = new CalculateMove(this);
-        return move.northWest(board, numMoves);
+        return move.move(board, numMoves, "northWest");
     }
     // ----------------------------------------------------------
     /**
@@ -219,7 +219,7 @@ public abstract class ChessGamePiece{
         ChessGameBoard board,
         int numMoves ){
         CalculateMove move = new CalculateMove(this);
-        return move.northEast(board, numMoves);
+        return move.move(board, numMoves, "northEast");
     }
     // ----------------------------------------------------------
     /**
@@ -236,7 +236,7 @@ public abstract class ChessGamePiece{
         ChessGameBoard board,
         int numMoves ){
         CalculateMove move = new CalculateMove(this);
-        return move.southWest(board, numMoves);
+        return move.move(board, numMoves, "southWest");
     }
     // ----------------------------------------------------------
     /**
@@ -253,7 +253,7 @@ public abstract class ChessGamePiece{
         ChessGameBoard board,
         int numMoves ){
         CalculateMove move = new CalculateMove(this);
-        return move.southEast(board, numMoves);
+        return move.move(board, numMoves, "southEast");
     }
     /**
      * Creates the ImageIcon by the color of the piece.
