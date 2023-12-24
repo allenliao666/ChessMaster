@@ -34,33 +34,7 @@ public class CalculateMove {
         }
         return moves;
     }
-    public ArrayList<String> skewMove(
-            ChessGameBoard board,
-            int numMoves, String direction ){
-        ArrayList<String> moves = new ArrayList<String>();
-        int count = 0;
-        if ( piece.isPieceOnScreen() ){
-            for ( int i = 1; i < 8 && count < numMoves; i++ ){
-                if ( piece.isOnScreen( rowDirection(piece.getRow(),i,direction)
-                        , colDirection(piece.getColumn(), i,direction ))
-                        && ( board.getCell( rowDirection(piece.getRow(),i,direction),
-                        colDirection(piece.getColumn(), i,direction ) ).getPieceOnSquare() == null ) ){
-                    moves.add( ( rowDirection(piece.getRow(),i,direction) ) + "," + ( colDirection(piece.getColumn(), i,direction ) ) );
-                    count++;
-                }
-                else if ( piece.isEnemy( board, rowDirection(piece.getRow(),i,direction), colDirection(piece.getColumn(), i,direction ) ) ){
-                    moves.add( ( rowDirection(piece.getRow(),i,direction) ) + "," + ( colDirection(piece.getColumn(), i,direction )) );
-                    count++;
-                    break;
-                }
-                else
-                {
-                    break;
-                }
-            }
-        }
-        return moves;
-    }
+
 
     public int rowDirection(int position,int i, String direction){
         switch (direction){
