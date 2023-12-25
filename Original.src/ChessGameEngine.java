@@ -191,7 +191,7 @@ public class ChessGameEngine{
                 return;
             }
             else if ( isKingInCheck( true ) ){
-                KingCheckedMessage message = new KingCheckedMessage(board,currentPlayer);
+                Message message = new KingCheckedMessage(board,currentPlayer);
                 message.showMessage();
             }
             currentPlayer = currentPlayer == 1 ? 2 : 1;
@@ -250,12 +250,12 @@ public class ChessGameEngine{
             else
             {
                 if ( currentPiece != null ){ //choose rival's chess
-                    ChooseRivalChessMessage message = new ChooseRivalChessMessage(squareClicked);
+                    Message message = new ChooseRivalChessMessage(squareClicked);
                     message.showMessage();
                 }
                 else //choose an empty board
                 {
-                    ChooseEmptyBoard message = new ChooseEmptyBoard(squareClicked);
+                    Message message = new ChooseEmptyBoard(squareClicked);
                     message.showMessage();
                 }
             }
